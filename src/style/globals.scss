@@ -18,19 +18,19 @@ button {
 
 main {
 	width: 100%;
-	min-height: 100vh;
+	height: calc(100vh - 100px - 60px);
 	display: flex;
-	flex-direction: column;
-	align-items: start;
-	justify-content: start;
+	justify-content: center;
 }
 
 section {
+	max-width: 1920px;
 	width: 100%;
-	height: calc(100vh - 100px - 60px);
+	height: 100%;
 	overflow-y: auto;
 	overflow-x: hidden;
 	scroll-behavior: smooth;
+	padding: 1.2rem 1.5rem;
 }
 
 img {

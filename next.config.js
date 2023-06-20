@@ -3,7 +3,8 @@ const path = require('path');
 
 const nextConfig = {
 	experimental: {
-		appDir: true
+		appDir: true,
+		reactRefresh: true
 	},
 	sassOptions: {
 		includePaths: [path.join(__dirname, 'styles')]

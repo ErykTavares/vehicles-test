@@ -1,7 +1,8 @@
 import '../style/globals.scss';
-import { Inter } from 'next/font/google';
+import { Roboto } from 'next/font/google';
+import '../style/tailwind.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const roboto = Roboto({ weight: '400', subsets: ['latin'] });
 
 export const metadata = {
 	title: 'Deslocamento',
@@ -11,7 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang='pt-br'>
-			<body className={inter.className}>{children}</body>
+			<body className={roboto.className}>{children}</body>
 		</html>
 	);
 }

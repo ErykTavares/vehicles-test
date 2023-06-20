@@ -9,7 +9,7 @@ interface IDefaultLayoutProps {
 const DefaultLayout = ({ children }: IDefaultLayoutProps): JSX.Element => (
 	<>
 		<Header />
-		{children}
+		<main>{children}</main>
 	</>
 );
 export default DefaultLayout;

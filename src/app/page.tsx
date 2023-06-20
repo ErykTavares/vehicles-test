@@ -3,9 +3,9 @@ import React from 'react';
 
 const Home = (): JSX.Element => (
 	<DefaultLayout>
-		<main>
+		<section>
 			<h2>essa e a home</h2>
-		</main>
+		</section>
 	</DefaultLayout>
 );
 export default Home;

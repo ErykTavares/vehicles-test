@@ -2,14 +2,24 @@ header {
 	background-color: #6c60bb;
 	color: white;
 
+	h1 {
+		font-size: 1.5rem;
+	}
+
 	nav {
-		width: 300px;
+		width: 400px;
 		display: flex;
 		align-items: center;
 		justify-content: space-around;
+		margin-top: 0.2rem;
 
-		a {
-			font-size: 1.2rem;
+		a,
+		a:is(:hover, :focus) {
+			transition: 0.5s;
+		}
+
+		a:is(:hover, :focus) {
+			color: #00ffc8;
 		}
 	}
 }
