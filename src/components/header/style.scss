@@ -18,7 +18,8 @@ header {
 			transition: 0.5s;
 		}
 
-		a:is(:hover, :focus) {
+		a:is(:hover, :focus),
+		.active {
 			color: #00ffc8;
 		}
 	}

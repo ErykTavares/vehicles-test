@@ -1,8 +1,7 @@
-'use client';
-
 import { Container } from '@mui/material';
 import Link from 'next/link';
 import React from 'react';
+import { usePathname } from 'next/navigation';
 import './style.scss';
 
 const links = {
@@ -13,12 +12,7 @@ const links = {
 };
 
 const Header = (): JSX.Element => {
-	const navLinks = () =>
-		Object.entries(links).map((item) => (
-			<li className='pr-2'>
-				<Link href={item[1]}>{item[0]}</Link>
-			</li>
-		));
+	const path = usePathname();
 
 	return (
 		<header>
@@ -27,14 +21,27 @@ const Header = (): JSX.Element => {
 					maxWidth: '1920px !important',
 					display: 'flex',
 					justifyContent: 'space-between',
-					padding: '1.2rem 2rem'
+					padding: '1.2rem 2rem',
+					'@media (max-width: 780px)': {
+						flexDirection: 'column',
+						alignItems: 'center',
+						justifyContent: 'start'
+					}
 				}}
 			>
 				<h1>
 					<Link href='#'>Deslocamento</Link>
 				</h1>
 				<nav>
-					<ul>{navLinks()}</ul>
+					<ul>
+						{Object.entries(links).map((item) => (
+							<li key={item[0]} className='pr-2'>
+								<Link className={path.includes(item[1]) ? 'active' : ''} href={item[1]}>
+									{item[0]}
+								</Link>
+							</li>
+						))}
+					</ul>
 				</nav>
 			</Container>
 		</header>
