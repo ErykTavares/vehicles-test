@@ -18,13 +18,6 @@ export const vehicleSchema = yup.object().shape({
 	kmAtual: yup.string().required('O km é requerido')
 });
 
-interface IData {
-	placa: string;
-	marcaModelo: string;
-	anoFabricacao: string;
-	kmAtual: string;
-}
-
 const Create = (): JSX.Element => {
 	const { control, handleSubmit } = useForm({
 		defaultValues: {
@@ -37,7 +30,7 @@ const Create = (): JSX.Element => {
 	});
 	const router = useRouter();
 
-	const handleCreateVehicle = useCallback(async (data: IData): Promise<void> => {
+	const handleCreateVehicle = useCallback(async (data: DVehicle.IData): Promise<void> => {
 		const formData = new FormData();
 
 		Object.entries(data).forEach((each) => {

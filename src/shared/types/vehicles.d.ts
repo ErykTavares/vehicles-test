@@ -6,4 +6,11 @@ declare namespace DVehicle {
 		anoFabricacao: number;
 		kmAtual: number;
 	}
+
+	export interface IData {
+		placa: string;
+		marcaModelo: string;
+		anoFabricacao: string;
+		kmAtual: string;
+	}
 }
