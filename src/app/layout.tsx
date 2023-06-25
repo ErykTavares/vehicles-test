@@ -1,6 +1,6 @@
 import '../style/globals.scss';
 import { Roboto } from 'next/font/google';
-import '../style/tailwind.css';
+// import '../style/tailwind.css';
 
 const roboto = Roboto({ weight: '400', subsets: ['latin'] });
 

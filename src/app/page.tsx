@@ -1,10 +1,10 @@
-import DefaultLayout from '@/layout/defaultLayout';
 import React from 'react';
+import DefaultLayout from '@/layout/defaultLayout';
 
-const Home = (): JSX.Element => (
+const Home = () => (
 	<DefaultLayout>
 		<section>
-			<h2>essa e a home</h2>
+			<p>Home</p>
 		</section>
 	</DefaultLayout>
 );
