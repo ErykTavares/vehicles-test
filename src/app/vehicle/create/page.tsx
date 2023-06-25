@@ -41,7 +41,7 @@ const Create = (): JSX.Element => {
 			.post(`/api/v1/veiculo`, formData)
 			.then(() => {
 				Swal.fire({
-					title: 'Success',
+					title: 'Sucesso',
 					text: 'Novo veiculo criado com sucesso.',
 					icon: 'success',
 					confirmButtonText: 'ok',
@@ -53,7 +53,7 @@ const Create = (): JSX.Element => {
 			})
 			.catch((err) => {
 				Swal.fire({
-					title: 'Error',
+					title: 'Erro',
 					text: err?.response?.data?.message || 'Algo deu errado',
 					icon: 'error',
 					confirmButtonText: 'ok',

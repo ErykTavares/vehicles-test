@@ -18,7 +18,6 @@ interface IEditProps {
 const Edit = ({ params: { id } }: IEditProps): JSX.Element => {
 	const { control, handleSubmit, reset } = useForm({
 		defaultValues: {
-			placa: '',
 			marcaModelo: '',
 			anoFabricacao: '',
 			kmAtual: ''
@@ -38,7 +37,7 @@ const Edit = ({ params: { id } }: IEditProps): JSX.Element => {
 			.put(`/api/v1/veiculo/${id}`, formData)
 			.then(() => {
 				Swal.fire({
-					title: 'Success',
+					title: 'Sucesso',
 					text: 'Veiculo editado com sucesso.',
 					icon: 'success',
 					confirmButtonText: 'ok',
@@ -50,7 +49,7 @@ const Edit = ({ params: { id } }: IEditProps): JSX.Element => {
 			})
 			.catch((err) => {
 				Swal.fire({
-					title: 'Error',
+					title: 'Erro',
 					text: err?.response?.data?.message || 'Algo deu errado',
 					icon: 'error',
 					confirmButtonText: 'ok',
@@ -66,7 +65,7 @@ const Edit = ({ params: { id } }: IEditProps): JSX.Element => {
 			})
 			.catch((err) => {
 				Swal.fire({
-					title: 'Error',
+					title: 'Erro',
 					text: err?.response?.data?.message || 'Algo deu errado',
 					icon: 'error',
 					confirmButtonText: 'ok',
@@ -113,7 +112,7 @@ const Edit = ({ params: { id } }: IEditProps): JSX.Element => {
 							handleSubmit((data) => handleEditVehicle(data))(e);
 						}}
 					>
-						<BasicInfo control={control} />
+						<BasicInfo control={control} edit />
 						<Container
 							sx={{
 								display: 'flex',

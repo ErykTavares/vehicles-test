@@ -12,31 +12,34 @@ interface IBasicInfoProps {
 		},
 		any
 	>;
+	edit?: boolean;
 }
 
-const BasicInfo = ({ control }: IBasicInfoProps): JSX.Element => (
+const BasicInfo = ({ control, edit }: IBasicInfoProps): JSX.Element => (
 	<>
-		<Controller
-			render={({ field: { onChange, value, ref }, fieldState: { error } }) => (
-				<TextField
-					sx={{
-						width: '100%'
-					}}
-					required
-					id='outlined'
-					label='Placa'
-					placeholder='v123dc'
-					margin='normal'
-					onChange={onChange}
-					value={value}
-					ref={ref}
-					error={!!error?.message}
-					helperText={error?.message}
-				/>
-			)}
-			name='placa'
-			control={control}
-		/>
+		{!edit ? (
+			<Controller
+				render={({ field: { onChange, value, ref }, fieldState: { error } }) => (
+					<TextField
+						sx={{
+							width: '100%'
+						}}
+						required
+						id='outlined'
+						label='Placa'
+						placeholder='v123dc'
+						margin='normal'
+						onChange={onChange}
+						value={value}
+						ref={ref}
+						error={!!error?.message}
+						helperText={error?.message}
+					/>
+				)}
+				name='placa'
+				control={control}
+			/>
+		) : null}
 		<Controller
 			render={({ field: { onChange, value, ref }, fieldState: { error } }) => (
 				<TextField
