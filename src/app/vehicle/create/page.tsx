@@ -2,13 +2,14 @@
 
 import React, { useCallback } from 'react';
 import DefaultLayout from '@/layout/defaultLayout';
-import { Box, Button, Container, TextField, Typography } from '@mui/material';
-import { useForm, Controller } from 'react-hook-form';
+import { Box, Button, Container, Typography } from '@mui/material';
+import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import api from '@/services/api';
 import Swal from 'sweetalert2';
 import { useRouter } from 'next/navigation';
+import BasicInfo from '../components/basicInfo';
 
 export const vehicleSchema = yup.object().shape({
 	placa: yup.string().required('A placa é requerida'),
@@ -102,90 +103,7 @@ const Create = (): JSX.Element => {
 							handleSubmit((data) => handleCreateVehicle(data))(e);
 						}}
 					>
-						<Controller
-							render={({ field: { onChange, value, ref }, fieldState: { error } }) => (
-								<TextField
-									sx={{
-										width: '100%'
-									}}
-									required
-									id='outlined'
-									label='Placa'
-									placeholder='v123dc'
-									margin='normal'
-									onChange={onChange}
-									value={value}
-									ref={ref}
-									error={!!error?.message}
-									helperText={error?.message}
-								/>
-							)}
-							name='placa'
-							control={control}
-						/>
-						<Controller
-							render={({ field: { onChange, value, ref }, fieldState: { error } }) => (
-								<TextField
-									sx={{
-										width: '100%'
-									}}
-									required
-									id='outlined'
-									label='Marca/Modelo'
-									placeholder='mercedes'
-									margin='normal'
-									onChange={onChange}
-									value={value}
-									ref={ref}
-									error={!!error?.message}
-									helperText={error?.message}
-								/>
-							)}
-							name='marcaModelo'
-							control={control}
-						/>
-						<Controller
-							render={({ field: { onChange, value, ref }, fieldState: { error } }) => (
-								<TextField
-									sx={{
-										width: '100%'
-									}}
-									required
-									id='outlined'
-									label='Ano de fabricação'
-									placeholder='1995'
-									margin='normal'
-									onChange={onChange}
-									value={value}
-									ref={ref}
-									error={!!error?.message}
-									helperText={error?.message}
-								/>
-							)}
-							name='anoFabricacao'
-							control={control}
-						/>
-						<Controller
-							render={({ field: { onChange, value, ref }, fieldState: { error } }) => (
-								<TextField
-									sx={{
-										width: '100%'
-									}}
-									required
-									id='outlined'
-									label='KM'
-									placeholder='1200'
-									margin='normal'
-									onChange={onChange}
-									value={value}
-									ref={ref}
-									error={!!error?.message}
-									helperText={error?.message}
-								/>
-							)}
-							name='kmAtual'
-							control={control}
-						/>
+						<BasicInfo control={control} />
 						<Container
 							sx={{
 								display: 'flex',
