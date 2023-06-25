@@ -1,3 +1,4 @@
+import Footer from '@/components/footer';
 import Header from '@/components/header';
 import React from 'react';
 
@@ -10,6 +11,7 @@ const DefaultLayout = ({ children }: IDefaultLayoutProps): JSX.Element => (
 	<>
 		<Header />
 		<main>{children}</main>
+		<Footer />
 	</>
 );
 export default DefaultLayout;
