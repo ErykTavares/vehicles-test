@@ -57,13 +57,31 @@ const Vehicle = (): JSX.Element => {
 							alignItems: 'center',
 							justifyContent: 'space-between',
 							marginBottom: '1rem',
-							padding: '0!important'
+							padding: '0!important',
+							'@media (max-width:768px)': {
+								flexDirection: 'column',
+								alignItems: 'start',
+								justifyContent: 'start'
+							}
 						}}
 					>
-						<Typography variant='h2' fontSize='1.5rem' color='darkGray' fontWeight='bolder'>
+						<Typography
+							variant='h2'
+							fontSize='1.5rem'
+							color='darkGray'
+							fontWeight='bolder'
+							marginBottom='.5rem'
+						>
 							Veiculos
 						</Typography>
-						<Button type='button' variant='contained' color='success'>
+						<Button
+							type='button'
+							variant='contained'
+							color='success'
+							sx={{
+								marginBottom: '.5rem'
+							}}
+						>
 							<Link href='/vehicle/create'>Novo veiculo</Link>
 						</Button>
 					</Container>

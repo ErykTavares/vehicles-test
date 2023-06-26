@@ -1,4 +1,5 @@
 header {
+	height: 90px;
 	background-color: #6c60bb;
 	color: white;
 
@@ -13,14 +14,19 @@ header {
 		justify-content: space-around;
 		margin-top: 0.2rem;
 
+		@media screen and (max-width: 768px) {
+			display: none;
+		}
+
 		a,
 		a:is(:hover, :focus) {
 			transition: 0.5s;
+			font-weight: 500;
 		}
 
 		a:is(:hover, :focus),
 		.active {
-			color: #00ffc8;
+			color: #e4ff00;
 		}
 
 		li {

@@ -10,7 +10,8 @@ const Footer = (): JSX.Element => (
 			display: 'flex',
 			alignItems: 'center',
 			justifyContent: 'center',
-			padding: '0 1rem'
+			padding: '0 1rem',
+			backgroundColor: '#b7b3d6'
 		}}
 	>
 		<a href='https://eryktavares-portfolio.netlify.app/home' target='_blank' rel='noreferrer'>
@@ -24,7 +25,7 @@ const Footer = (): JSX.Element => (
 				}}
 				variant='h6'
 				fontSize='.8rem'
-				color='darkGray'
+				color='white'
 				fontWeight='bolder'
 			>
 				copyright ErykTavares ©{new Date().getFullYear()}
