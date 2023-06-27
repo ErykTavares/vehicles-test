@@ -9,19 +9,19 @@ import { Button, Container, TableCell, TableRow, Typography } from '@mui/materia
 import Link from 'next/link';
 
 const Vehicle = (): JSX.Element => {
-	const [vehicles, setVehicles] = useState<DVehicle.IVehicle[]>([]);
+	const [clients, setClients] = useState<DClient.IClient[]>([]);
 
-	const getVehicles = useCallback(async (): Promise<void> => {
-		await api(`/api/v1/veiculo`)
+	const getClients = useCallback(async (): Promise<void> => {
+		await api(`/api/v1/cliente`)
 			.then(({ data }) => {
-				setVehicles(data);
+				setClients(data);
 			})
 			.catch((err) => {
 				Swal.fire(err?.response?.data?.message || 'Algo deu errado', '', 'error');
 			});
 	}, []);
 
-	const handleDeleteVehice = useCallback(async (id: number): Promise<void> => {
+	const handleDeleteClient = useCallback(async (id: number): Promise<void> => {
 		Swal.fire({
 			title: 'Tem certeza que deseja excluir isso?',
 			icon: 'info',
@@ -31,10 +31,10 @@ const Vehicle = (): JSX.Element => {
 			text: `tem certeza em deletar : ${id}`,
 			preConfirm: async (): Promise<void> => {
 				await api
-					.delete(`/api/v1/veiculo/${id}`)
+					.delete(`/api/v1/cliente/${id}`)
 					.then(async () => {
 						await Swal.fire(` : ${id} deletado.`, '', 'success');
-						getVehicles();
+						getClients();
 					})
 					.catch((err) => {
 						Swal.fire(err?.response?.data?.message || 'Algo deu errado', '', 'error');
@@ -44,7 +44,7 @@ const Vehicle = (): JSX.Element => {
 	}, []);
 
 	useEffect(() => {
-		getVehicles();
+		getClients();
 	}, []);
 
 	return (
@@ -72,7 +72,7 @@ const Vehicle = (): JSX.Element => {
 							fontWeight='bolder'
 							marginBottom='.5rem'
 						>
-							Veiculos
+							Clientes
 						</Typography>
 						<Button
 							type='button'
@@ -82,13 +82,26 @@ const Vehicle = (): JSX.Element => {
 								marginBottom: '.5rem'
 							}}
 						>
-							<Link href='/vehicle/create'>Novo veiculo</Link>
+							<Link href='/client/create'>Novo Cliente</Link>
 						</Button>
 					</Container>
-					<BasicTable headers={['Id', 'Placa', 'Marca/Modelo', 'Ano', 'KM', 'Opções']}>
-						{vehicles?.map((vehi) => (
-							<TableRow key={vehi?.id}>
-								{Object.entries(vehi)?.map((item) => (
+					<BasicTable
+						headers={[
+							'Id',
+							'Número Do Documento',
+							'Tipo do Documento',
+							'Nome',
+							'Logradouro',
+							'Número',
+							'Bairro',
+							'Cidade',
+							'UF',
+							'Opções'
+						]}
+					>
+						{clients?.map((clien) => (
+							<TableRow key={clien?.id}>
+								{Object.entries(clien)?.map((item) => (
 									<TableCell key={item[0] + item[1]}>{item[1]}</TableCell>
 								))}
 								<TableCell>
@@ -99,13 +112,13 @@ const Vehicle = (): JSX.Element => {
 											color='primary'
 											sx={{ marginRight: '.5rem' }}
 										>
-											<Link href={`/vehicle/${vehi.id}/edit`}>Editar</Link>
+											<Link href={`/client/${clien.id}/edit`}>Editar</Link>
 										</Button>
 										<Button
 											type='button'
 											variant='contained'
 											color='error'
-											onClick={() => handleDeleteVehice(vehi.id)}
+											onClick={() => handleDeleteClient(clien.id)}
 										>
 											Deletar
 										</Button>
