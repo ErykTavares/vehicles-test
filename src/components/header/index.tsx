@@ -46,7 +46,7 @@ const Header = (): JSX.Element => {
 					<ul>
 						{Object.entries(links).map((item) => (
 							<li key={item[0]} className='pr-2'>
-								<Link className={path.includes(item[1]) ? 'active' : ''} href={item[1]}>
+								<Link className={path.includes(item[1]) ? 'active' : ''} href={`/${item[1]}`}>
 									{item[0]}
 								</Link>
 							</li>
@@ -117,7 +117,7 @@ const Header = (): JSX.Element => {
 							}}
 							selected={path.includes(item[1])}
 						>
-							<Link href={item[1]}>{item[0]}</Link>
+							<Link href={`/${item[1]}`}>{item[0]}</Link>
 						</MenuItem>
 					))}
 				</Menu>
