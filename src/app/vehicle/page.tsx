@@ -6,10 +6,15 @@ import BasicTable from '@/components/basicTable';
 import DefaultLayout from '@/layout/defaultLayout';
 import api from '@/services/api';
 import { Button, Container, TableCell, TableRow, Typography } from '@mui/material';
-import Link from 'next/link';
+import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import { useRouter } from 'next/navigation';
 
 const Vehicle = (): JSX.Element => {
 	const [vehicles, setVehicles] = useState<DVehicle.IVehicle[]>([]);
+
+	const router = useRouter();
 
 	const getVehicles = useCallback(async (): Promise<void> => {
 		await api(`/api/v1/veiculo`)
@@ -78,11 +83,13 @@ const Vehicle = (): JSX.Element => {
 							type='button'
 							variant='contained'
 							color='success'
+							startIcon={<AddIcon />}
 							sx={{
 								marginBottom: '.5rem'
 							}}
+							onClick={() => router.push('/vehicle/create')}
 						>
-							<Link href='/vehicle/create'>Novo veiculo</Link>
+							Novo veiculo
 						</Button>
 					</Container>
 					<BasicTable headers={['ID', 'Placa', 'Marca/Modelo', 'Ano', 'KM', 'Opções']}>
@@ -97,15 +104,19 @@ const Vehicle = (): JSX.Element => {
 											type='button'
 											variant='contained'
 											color='primary'
-											sx={{ marginRight: '.5rem' }}
+											startIcon={<EditIcon />}
+											sx={{ marginRight: '.5rem', marginBottom: '.5rem' }}
+											onClick={() => router.push(`/vehicle/${vehi.id}/edit`)}
 										>
-											<Link href={`/vehicle/${vehi.id}/edit`}>Editar</Link>
+											Editar
 										</Button>
 										<Button
 											type='button'
 											variant='contained'
 											color='error'
 											onClick={() => handleDeleteVehice(vehi.id)}
+											startIcon={<DeleteForeverIcon />}
+											sx={{ width: '108.7px', marginBottom: '.5rem' }}
 										>
 											Deletar
 										</Button>

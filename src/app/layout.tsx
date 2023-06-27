@@ -2,7 +2,7 @@ import '../style/globals.scss';
 import { Roboto } from 'next/font/google';
 // import '../style/tailwind.css';
 
-const roboto = Roboto({ weight: '400', subsets: ['latin'] });
+const roboto = Roboto({ weight: ['300', '400', '500', '700'], subsets: ['latin'] });
 
 export const metadata = {
 	title: 'Deslocamento',

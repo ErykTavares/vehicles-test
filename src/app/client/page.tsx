@@ -6,10 +6,15 @@ import BasicTable from '@/components/basicTable';
 import DefaultLayout from '@/layout/defaultLayout';
 import api from '@/services/api';
 import { Button, Container, TableCell, TableRow, Typography } from '@mui/material';
-import Link from 'next/link';
+import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import { useRouter } from 'next/navigation';
 
 const Vehicle = (): JSX.Element => {
 	const [clients, setClients] = useState<DClient.IClient[]>([]);
+
+	const router = useRouter();
 
 	const getClients = useCallback(async (): Promise<void> => {
 		await api(`/api/v1/cliente`)
@@ -78,11 +83,13 @@ const Vehicle = (): JSX.Element => {
 							type='button'
 							variant='contained'
 							color='success'
+							startIcon={<AddIcon />}
 							sx={{
 								marginBottom: '.5rem'
 							}}
+							onClick={() => router.push('/client/create')}
 						>
-							<Link href='/client/create'>Novo Cliente</Link>
+							Novo Cliente
 						</Button>
 					</Container>
 					<BasicTable
@@ -110,15 +117,19 @@ const Vehicle = (): JSX.Element => {
 											type='button'
 											variant='contained'
 											color='primary'
-											sx={{ marginRight: '.5rem' }}
+											startIcon={<EditIcon />}
+											sx={{ marginRight: '.5rem', marginBottom: '.5rem' }}
+											onClick={() => router.push(`/client/${clien?.id}/edit`)}
 										>
-											<Link href={`/client/${clien.id}/edit`}>Editar</Link>
+											Editar
 										</Button>
 										<Button
 											type='button'
 											variant='contained'
 											color='error'
 											onClick={() => handleDeleteClient(clien.id)}
+											startIcon={<DeleteForeverIcon />}
+											sx={{ width: '108.7px', marginBottom: '.5rem' }}
 										>
 											Deletar
 										</Button>
