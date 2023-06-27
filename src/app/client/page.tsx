@@ -87,7 +87,7 @@ const Vehicle = (): JSX.Element => {
 					</Container>
 					<BasicTable
 						headers={[
-							'Id',
+							'ID',
 							'Número Do Documento',
 							'Tipo do Documento',
 							'Nome',

@@ -85,7 +85,7 @@ const Vehicle = (): JSX.Element => {
 							<Link href='/vehicle/create'>Novo veiculo</Link>
 						</Button>
 					</Container>
-					<BasicTable headers={['Id', 'Placa', 'Marca/Modelo', 'Ano', 'KM', 'Opções']}>
+					<BasicTable headers={['ID', 'Placa', 'Marca/Modelo', 'Ano', 'KM', 'Opções']}>
 						{vehicles?.map((vehi) => (
 							<TableRow key={vehi?.id}>
 								{Object.entries(vehi)?.map((item) => (
