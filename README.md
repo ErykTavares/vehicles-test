@@ -10,7 +10,7 @@ Com criatividade, habilidade e dedicação, buscarei entregar um resultado de ex
 
 ### **Site do Projeto**
 
-**https://noticias-brasil.vercel.app/**
+**https://vehicles-test.vercel.app/vehicle**
 
 ---
 

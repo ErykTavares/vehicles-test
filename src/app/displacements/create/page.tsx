@@ -49,8 +49,6 @@ const Create = (): JSX.Element => {
 			formData.append(each[0], each[1]);
 		});
 
-		console.log(formData);
-
 		await api
 			.post(`/api/v1/deslocamento/iniciardeslocamento`, formData)
 			.then(() => {
