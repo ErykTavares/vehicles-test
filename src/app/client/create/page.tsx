@@ -125,4 +125,5 @@ const Create = (): JSX.Element => {
 		</DefaultLayout>
 	);
 };
+
 export default Create;

@@ -1,5 +1,3 @@
-'use client';
-
 import '../style/globals.scss';
 import { Roboto } from 'next/font/google';
 
