@@ -21,52 +21,50 @@ interface IBasicInfoProps {
 
 const BasicInfo = ({ control, edit }: IBasicInfoProps): JSX.Element => (
 	<>
-		{!edit ? (
-			<>
-				<Controller
-					render={({ field: { onChange, value, ref }, fieldState: { error } }) => (
-						<TextField
-							sx={{
-								width: '100%'
-							}}
-							required
-							id='outlined'
-							label='Número do documento'
-							placeholder='000.000.000-00'
-							margin='normal'
-							onChange={onChange}
-							value={value}
-							ref={ref}
-							error={!!error?.message}
-							helperText={error?.message}
-						/>
-					)}
-					name='numeroDocumento'
-					control={control}
+		<Controller
+			render={({ field: { onChange, value, ref }, fieldState: { error } }) => (
+				<TextField
+					sx={{
+						width: '100%'
+					}}
+					required
+					id='outlined'
+					label='Número do documento'
+					placeholder='000.000.000-00'
+					margin='normal'
+					onChange={onChange}
+					disabled={edit}
+					value={value}
+					ref={ref}
+					error={!!error?.message}
+					helperText={error?.message}
 				/>
-				<Controller
-					render={({ field: { onChange, value, ref }, fieldState: { error } }) => (
-						<TextField
-							sx={{
-								width: '100%'
-							}}
-							required
-							id='outlined'
-							label='Tipo de documento'
-							placeholder='CPF'
-							margin='normal'
-							onChange={onChange}
-							value={value}
-							ref={ref}
-							error={!!error?.message}
-							helperText={error?.message}
-						/>
-					)}
-					name='tipoDocumento'
-					control={control}
+			)}
+			name='numeroDocumento'
+			control={control}
+		/>
+		<Controller
+			render={({ field: { onChange, value, ref }, fieldState: { error } }) => (
+				<TextField
+					sx={{
+						width: '100%'
+					}}
+					required
+					id='outlined'
+					label='Tipo de documento'
+					placeholder='CPF'
+					margin='normal'
+					onChange={onChange}
+					disabled={edit}
+					value={value}
+					ref={ref}
+					error={!!error?.message}
+					helperText={error?.message}
 				/>
-			</>
-		) : null}
+			)}
+			name='tipoDocumento'
+			control={control}
+		/>
 
 		<Controller
 			render={({ field: { onChange, value, ref }, fieldState: { error } }) => (

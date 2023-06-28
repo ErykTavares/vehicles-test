@@ -18,6 +18,8 @@ interface IEditProps {
 const Edit = ({ params: { id } }: IEditProps): JSX.Element => {
 	const { control, handleSubmit, reset } = useForm({
 		defaultValues: {
+			numeroDocumento: '',
+			tipoDocumento: '',
 			nome: '',
 			logradouro: '',
 			numero: '',
@@ -123,7 +125,7 @@ const Edit = ({ params: { id } }: IEditProps): JSX.Element => {
 								justifyContent: 'end',
 								marginBottom: '1rem',
 								padding: '0!important',
-								paddingRight: '1rem!important '
+								paddingRight: '0.1rem!important'
 							}}
 						>
 							<Button type='submit' variant='contained' color='success'>

@@ -112,7 +112,7 @@ const Create = (): JSX.Element => {
 								justifyContent: 'end',
 								marginBottom: '1rem',
 								padding: '0!important',
-								paddingRight: '1rem!important '
+								paddingRight: '0.1rem!important'
 							}}
 						>
 							<Button type='submit' variant='contained' color='success'>
